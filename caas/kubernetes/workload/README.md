@@ -57,6 +57,7 @@ Creates DataDog monitors with the following checks:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_available_replica_group_by"></a> [available\_replica\_group\_by](#input\_available\_replica\_group\_by) | Select group by element on monitors | `list` | <pre>[<br>  "kube_namespace",<br>  "kube_deployment",<br>  "kube_cluster_name"<br>]</pre> | no |
 | <a name="input_cronjob_enabled"></a> [cronjob\_enabled](#input\_cronjob\_enabled) | Flag to enable Cronjob monitor | `string` | `"true"` | no |
 | <a name="input_cronjob_extra_tags"></a> [cronjob\_extra\_tags](#input\_cronjob\_extra\_tags) | Extra tags for Cronjob monitor | `list(string)` | `[]` | no |
 | <a name="input_cronjob_message"></a> [cronjob\_message](#input\_cronjob\_message) | Custom message for Cronjob monitor | `string` | `""` | no |

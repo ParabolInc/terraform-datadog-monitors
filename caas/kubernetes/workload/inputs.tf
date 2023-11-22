@@ -218,3 +218,8 @@ variable "replica_group_by" {
   description = "Select group by element on monitors"
 }
 
+variable "available_replica_group_by" {
+  default     = ["kube_namespace", "kube_deployment", "kube_cluster_name"]
+  description = "Select group by element on monitors"
+}
+
