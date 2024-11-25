@@ -70,7 +70,6 @@ Creates DataDog monitors with the following checks:
 | <a name="input_filter_tags_use_defaults"></a> [filter\_tags\_use\_defaults](#input\_filter\_tags\_use\_defaults) | Use default filter tags convention | `string` | `"true"` | no |
 | <a name="input_message"></a> [message](#input\_message) | Message sent when a monitor is triggered | `any` | n/a | yes |
 | <a name="input_new_group_delay"></a> [new\_group\_delay](#input\_new\_group\_delay) | Delay in seconds before monitor new resource | `number` | `300` | no |
-| <a name="input_new_host_delay"></a> [new\_host\_delay](#input\_new\_host\_delay) | Delay in seconds before monitor new resource | `number` | `300` | no |
 | <a name="input_notify_no_data"></a> [notify\_no\_data](#input\_notify\_no\_data) | Will raise no data alert if set to true | `bool` | `true` | no |
 | <a name="input_pod_group_by"></a> [pod\_group\_by](#input\_pod\_group\_by) | Select group by element on monitors (error and terminated) | `list` | <pre>[<br>  "kube_namespace",<br>  "pod_name",<br>  "reason",<br>  "kube_cluster_name"<br>]</pre> | no |
 | <a name="input_pod_phase_status_enabled"></a> [pod\_phase\_status\_enabled](#input\_pod\_phase\_status\_enabled) | Flag to enable Pod phase status monitor | `string` | `"true"` | no |
