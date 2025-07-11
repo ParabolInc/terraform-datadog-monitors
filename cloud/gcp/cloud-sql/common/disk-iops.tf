@@ -4,7 +4,7 @@
 #
 resource "datadog_monitor" "read_iops_limit" {
   count   = var.read_iops_limit_enabled == "true" ? 1 : 0
-  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Cloud SQL Write IOPS limit {{#is_alert}}{{{comparator}}} {{threshold}}% ({{value}}%){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}}% ({{value}}%){{/is_warning}}"
+  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Cloud SQL Read IOPS limit {{#is_alert}}{{{comparator}}} {{threshold}}% ({{value}}%){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}}% ({{value}}%){{/is_warning}}"
   message = coalesce(var.read_iops_limit_message, var.message)
   type    = "query alert"
 
@@ -94,7 +94,7 @@ variable "read_iops_limit_no_data_timeframe" {
 #
 resource "datadog_monitor" "write_iops_limit" {
   count   = var.write_iops_limit_enabled == "true" ? 1 : 0
-  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Cloud SQL Read IOPS limit {{#is_alert}}{{{comparator}}} {{threshold}}% ({{value}}%){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}}% ({{value}}%){{/is_warning}}"
+  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Cloud SQL Write IOPS limit {{#is_alert}}{{{comparator}}} {{threshold}}% ({{value}}%){{/is_alert}}{{#is_warning}}{{{comparator}}} {{warn_threshold}}% ({{value}}%){{/is_warning}}"
   message = coalesce(var.write_iops_limit_message, var.message)
   type    = "query alert"
 
