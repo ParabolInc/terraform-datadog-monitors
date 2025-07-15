@@ -47,6 +47,7 @@ Creates DataDog monitors with the following checks:
 
 | Name | Type |
 |------|------|
+| [datadog_monitor.containers_restart](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor) | resource |
 | [datadog_monitor.error](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor) | resource |
 | [datadog_monitor.pod_phase_status](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor) | resource |
 | [datadog_monitor.terminated](https://registry.terraform.io/providers/DataDog/datadog/latest/docs/resources/monitor) | resource |
@@ -55,6 +56,12 @@ Creates DataDog monitors with the following checks:
 
 | Name | Description | Type | Default | Required |
 |------|-------------|------|---------|:--------:|
+| <a name="input_containers_restart_enabled"></a> [containers\_restart\_enabled](#input\_containers\_restart\_enabled) | Flag to enable Containers restart monitor | `string` | `"true"` | no |
+| <a name="input_containers_restart_extra_tags"></a> [containers\_restart\_extra\_tags](#input\_containers\_restart\_extra\_tags) | Extra tags for Containers restart monitor | `list(string)` | `[]` | no |
+| <a name="input_containers_restart_group_by"></a> [containers\_restart\_group\_by](#input\_containers\_restart\_group\_by) | Select group by element on monitors | `list` | <pre>[<br>  "kube_deployment"<br>]</pre> | no |
+| <a name="input_containers_restart_message"></a> [containers\_restart\_message](#input\_containers\_restart\_message) | Custom message for Containers restart monitor | `string` | `""` | no |
+| <a name="input_containers_restart_time_aggregator"></a> [containers\_restart\_time\_aggregator](#input\_containers\_restart\_time\_aggregator) | Monitor aggregator for Containers restart [available values: min, max or avg] | `string` | `"max"` | no |
+| <a name="input_containers_restart_timeframe"></a> [containers\_restart\_timeframe](#input\_containers\_restart\_timeframe) | Monitor timeframe for Containers restart [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`] | `string` | `"last_1d"` | no |
 | <a name="input_environment"></a> [environment](#input\_environment) | Architecture environment | `any` | n/a | yes |
 | <a name="input_error_enabled"></a> [error\_enabled](#input\_error\_enabled) | Flag to enable Pod errors monitor | `string` | `"true"` | no |
 | <a name="input_error_extra_tags"></a> [error\_extra\_tags](#input\_error\_extra\_tags) | Extra tags for Pod errors monitor | `list(string)` | `[]` | no |
