@@ -174,3 +174,38 @@ variable "pod_status_group_by" {
   default     = ["kube_namespace", "kube_cluster_name"]
   description = "Select group by element on monitors (phase status)"
 }
+
+variable "containers_restart_group_by" {
+  default     = ["kube_deployment"]
+  description = "Select group by element on monitors"
+}
+
+variable "containers_restart_enabled" {
+  description = "Flag to enable Containers restart monitor"
+  type        = string
+  default     = "true"
+}
+
+variable "containers_restart_extra_tags" {
+  description = "Extra tags for Containers restart monitor"
+  type        = list(string)
+  default     = []
+}
+
+variable "containers_restart_message" {
+  description = "Custom message for Containers restart monitor"
+  type        = string
+  default     = ""
+}
+
+variable "containers_restart_time_aggregator" {
+  description = "Monitor aggregator for Containers restart [available values: min, max or avg]"
+  type        = string
+  default     = "max"
+}
+
+variable "containers_restart_timeframe" {
+  description = "Monitor timeframe for Containers restart [available values: `last_#m` (1, 5, 10, 15, or 30), `last_#h` (1, 2, or 4), or `last_1d`]"
+  type        = string
+  default     = "last_1d"
+}
