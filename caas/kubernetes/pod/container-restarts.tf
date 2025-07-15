@@ -5,7 +5,7 @@ locals {
 
 variable "containers_restart_group_by" {
   default     = ["kube_deployment"]
-  description = "Select group by element on monitors (phase status)"
+  description = "Select group by element on monitors"
 }
 
 variable "containers_restart_enabled" {
@@ -47,7 +47,7 @@ resource "datadog_monitor" "containers_restart" {
 
   query = <<EOQ
     ${var.containers_restart_time_aggregator}(${var.containers_restart_timeframe}):
-      default(max:kubernetes.containers.restarts${module.filter-tags-phase.query_alert} by {${local.containers_restart_group_by}}, 0) > 0
+      default(max:kubernetes.containers.restarts${module.filter-tags.query_alert} by {${local.containers_restart_group_by}}, 0) > 0
 EOQ
 
   monitor_thresholds {
