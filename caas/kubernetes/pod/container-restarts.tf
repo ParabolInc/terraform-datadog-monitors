@@ -41,7 +41,7 @@ variable "containers_restart_timeframe" {
 
 resource "datadog_monitor" "containers_restart" {
   count   = var.containers_restart_enabled == "true" ? 1 : 0
-  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Kubernetes Container restarted"
+  name    = "${var.prefix_slug == "" ? "" : "[${var.prefix_slug}]"}[${var.environment}] Kubernetes Container restarted multiple times"
   message = coalesce(var.containers_restart_message, var.message)
   type    = "metric alert"
 
@@ -65,5 +65,5 @@ EOQ
   include_tags        = true
   require_full_window = true
 
-  tags = concat(local.common_tags, var.tags, var.containers_restart_extra_tags)
+  tags = concat(["env:${var.environment}", "type:caas", "provider:kubernetes", "resource:kubernetes-pod", "team:claranet", "created-by:terraform"], var.containers_restart_extra_tags)
 }
