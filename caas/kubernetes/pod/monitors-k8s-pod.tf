@@ -92,11 +92,12 @@ resource "datadog_monitor" "containers_restart" {
 
   query = <<EOQ
     ${var.containers_restart_time_aggregator}(${var.containers_restart_timeframe}):
-      default(max:kubernetes.containers.restarts${module.filter-tags.query_alert} by {${local.containers_restart_group_by}}, 0) > 0
+      default(max:kubernetes.containers.restarts${module.filter-tags.query_alert} by {${local.containers_restart_group_by}}, 0) > 1
 EOQ
 
   monitor_thresholds {
-    critical = 0
+    critical = 1
+    warning  = 0
   }
 
   evaluation_delay = var.evaluation_delay
