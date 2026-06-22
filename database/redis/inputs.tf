@@ -283,12 +283,12 @@ variable "mem_frag_timeframe" {
 
 variable "mem_frag_threshold_critical" {
   description = "memory RAM fragmentation limit (critical threshold)"
-  default     = 150
+  default     = 200
 }
 
 variable "mem_frag_threshold_warning" {
   description = "memory RAM fragmentation limit (warning threshold)"
-  default     = 130
+  default     = 155
 }
 
 variable "rejected_con_enabled" {
